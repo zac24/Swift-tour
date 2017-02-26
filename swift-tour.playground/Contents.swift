@@ -212,7 +212,53 @@ func lessThanTen (number:Int) -> Bool {
 
 hasAnyMatch(list: [11,15,13], condition: lessThanTen)
 
-// Closure
+// =============== Closures ============================
+/*Functions are actually a special case of closures: blocks of code that can be called later. The code in a closure has access to things like variables and functions that were available in the scope where the closure was created, even if the closure is in a different scope when it is executed—you saw an example of this already with nested functions. You can write a closure without a name by surrounding code with braces ({}). Use "in" to separate the arguments and return type from the body.*/
+
+var numbers = [20,19,7,12]
+
+let mappedNumbers = numbers.map({
+    (number:Int) -> Int in
+    let result = 3*number
+    return result
+})
+print(mappedNumbers)
+
+// You have several options for writing closures more concisely. When a closure’s type is already known, such as the callback for a delegate, you can omit the type of its parameters, its return type, or both. Single statement closures implicitly return the value of their only statement.
+
+let mappedNumber = numbers.map({number in 3*number})
+print(mappedNumber)
+
+/*You can refer to parameters by number instead of by name—this approach is especially useful in very short closures. A closure passed as the last argument to a function can appear immediately after the parentheses. When a closure is the only argument to a function, you can omit the parentheses entirely.*/
+
+let sortedNumbers = numbers.sorted {$0 > $1}   // you might wanna try sorted(by:<)
+print(sortedNumbers)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
